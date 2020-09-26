@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./Template/template.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="content">
+        <h:form id="registroEventoForm">
+            <p:growl id="growl" showDetail="true" sticky="true" />
+            <p:dock position="top">
+                <p:menuitem title="Menu Principal" icon="./Imagenes/icon_home3.png" action="#{dock.navegacionDock()}"/>
+                <p:menuitem title="Centro de ayuda" icon="./Imagenes/icon_help3.png" url="#"/>
+            </p:dock>
+            <center>
+                <p:graphicImage url="./Imagenes/nuevoEvento.png" width="300px" height="150px"/>
+                <table cellspacing="15px">
+                    <tr>
+                        <td>
+                            <p:outputLabel class="style_label"  value="Código del evento: "/>
+                        </td>
+                        <td>
+                            <p:inputText value="#{registroEventoControlador.codigoevento}"/>
+                        </td>
+                        <td>
+                            <p:outputLabel class="style_label"  value="Fecha del evento: "/>
+                        </td>
+                        <td>
+                            <p:inputText value="#{registroEventoControlador.fecha}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p:outputLabel class="style_label"  value="Lugar de desarrollo: "/>
+                        </td>
+                        <td>
+                            <p:inputText value="#{registroEventoControlador.lugar}" />
+                        </td>
+                               <td>
+                            <p:outputLabel class="style_label"  value="Nombre del organizador:"/>
+                        </td>
+                        <td>
+                            <p:inputText value="#{registroEventoControlador.nombreorganizador}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p:outputLabel class="style_label"  value="Tel. Organizador: "/>
+                        </td>
+                        <td>
+                            <p:inputText value="#{registroEventoControlador.telorganizador}" />
+                        </td>
+                        <td>
+                            <p:outputLabel class="style_label"  value="Cantidad Invitados: "/>
+                        </td>
+                        <td>
+                            <p:inputText value="#{registroEventoControlador.cantinvitados}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p:outputLabel class="style_label"  value="Nombre del patrocinador: "/>
+                        </td>
+                        <td>
+                            <p:inputText value="#{registroEventoControlador.nombrepatrocinador}" />
+                        </td>
+                        <td>
+                            <p:outputLabel class="style_label"  value="Tel. Patrocinador"/>
+                        </td>
+                        <td>
+                            <p:inputText value="#{registroEventoControlador.telpatrocinador}" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="6" align="center">
+                            <p:commandButton class="boton3" value="Registrar" action="#{registroEventoControlador.registrarEvento()}" update="registroEventoForm"/>
+                        </td>
+                    </tr>
+                </table>
+            </center>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

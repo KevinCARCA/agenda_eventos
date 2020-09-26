@@ -1,0 +1,108 @@
+body {
+    background-image: url("../../Imagenes/fondo.png");
+    font-size: 12px;
+    font-family: Verdana, "Verdana CE",  Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    color: #000000;
+    margin: 20px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+transparencia {
+    background-color: rgba(98,88,88,0.7);
+    width: 500px;
+    text-align: center;
+}
+h1 {
+    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    border-bottom: 1px solid #AFAFAF; 
+    font-size:  16px;
+    font-weight: bold;
+    margin: 0px;
+    padding: 0px;
+    color: #D20005;
+}
+
+a:link, a:visited {
+  color: #045491;
+  font-weight : bold;
+  text-decoration: none;
+}
+
+a:link:hover, a:visited:hover  {
+  color: #045491;
+  font-weight : bold;
+  text-decoration : underline;
+}
+
+.img_style{
+	width: 100px;
+	height: 100px;
+	margin-top: 50px;
+	margin-bottom: 30px;
+}
+.label_login{
+	color: white;
+	font-family: sans-serif;
+}
+.style_label{
+	color: white;
+        font-weight: bold;
+	font-family: sans-serif;
+}
+.style_title{
+	color: #122F5C;
+	font-family: sans-serif;
+        font-weight: bold
+}
+.slidein {
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-size: x-large;
+  color: white;
+}
+.input_style{
+	border-radius: 7px;
+}
+.submit_style {
+	border-radius: 7px;
+	color: rgba(255, 255, 255, 0.9) !important;
+	font-size: 20px;
+	font-weight: 500;
+	padding: 0.5em 1.2em;
+	background: #318aac;
+	border: 2px solid;
+	border-color: #318aac;
+	position: relative;
+}
+
+.submit_style:hover {
+	color: rgba(255, 255, 255, 1) !important;
+	box-shadow: 0 4px 16px rgba(49, 138, 172, 1);
+	transition: all 0.2s ease;
+}
+.table_style{
+        background-color: rgba(98,88,88,0.7);
+        width: 500px;
+        text-align: center;
+        border-radius: 7px;
+}
+
+.boton3 {
+  color: white !important;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 0.5em 1.2em;
+  background: rgba(0,0,0,0);
+  border: 2px solid;
+  border-color: #318aac;
+  transition: all 1s ease;
+  position: relative;
+  border-radius: 7px;
+}
+.boton3:hover {
+  background: lightblue;
+  color: #fff !important;
+  transform: scale(1.25);
+}

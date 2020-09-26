@@ -1,0 +1,137 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./Template/template.xhtml"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <ui:define name="content">
+        <h:form id = "consultaEventoForm">
+            <p:growl id="growl" showDetail="true" sticky="true" />
+            <p:dock position="top">
+                <p:menuitem title="Menu Principal" icon="./Imagenes/icon_home3.png" action="#{dock.navegacionDock()}"/>
+                <p:menuitem title="Centro de ayuda" icon="./Imagenes/icon_help3.png" url="#"/>
+            </p:dock> 
+            <center>
+                <p:graphicImage url="./Imagenes/actualizarEvento.png" width="200px" height="150px"/>
+                <p:panel id="pnlConsultarEvento" style=" width: 1300px">
+                    <table cellspacing="10px">
+                        <tr>
+                            <td>
+                                <p:outputLabel value="Codigo"/>
+                            </td>
+                            <td>
+                                <p:inputText value="#{consultaEventoControlador.codigo}"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" align="center">
+                                <p:commandButton class="boton3"  value="Consultar" icon="ui-icon-search" action="#{consultaEventoControlador.consultarEventoCodigo()}" update="consultaEventoForm"/>
+                            </td>
+                        </tr>
+                    </table>
+                    <p:dataTable id="tbConsultaEvento" var="evento" rowKey="#{evento}" value="#{consultaEventoControlador.listaEventos}" rows="10" paginator="true" paginatorPosition="bottom"
+                                 emptyMessage="No hay registros" selectionMode="single" selection="#{consultaEventoControlador.eventoSeleccionado}">
+                        <p:column headerText="Código Evento" width="50px">
+                            <h:outputText value="#{evento.codigoevento}"/>
+                        </p:column>
+                        <p:column headerText="Fecha" width="90px">
+                            <h:outputText value="#{evento.fecha}"/>
+                        </p:column>
+                        <p:column headerText="Lugar" width="90px">
+                            <h:outputText value="#{evento.lugar}"/>
+                        </p:column>
+                        <p:column headerText="Organizador" width="60px">
+                            <h:outputText value="#{evento.nombreorganizador}"/>
+                        </p:column>
+                        <p:column headerText="Tel. Organizador" width="50px">
+                            <h:outputText value="#{evento.telorganizador}"/>
+                        </p:column>
+                        <p:column headerText="Invitados" width="50px">
+                            <h:outputText value="#{evento.cantinvitados}"/>
+                        </p:column>
+                         <p:column headerText="Patrocinador" width="60px">
+                             <h:outputText value="#{evento.nombrepatrocinador}"/>
+                        </p:column>
+                        <p:column headerText="Tel. Patrocinador" width="50px">
+                            <h:outputText value="#{evento.telpatrocinador}"/>
+                        </p:column>
+                        <p:column headerText="Acciones" width="50px">
+                            <p:commandButton icon="ui-icon-refresh" action="#{consultaEventoControlador.mostrarEventoSeleccionado()}" update="consultaEventoForm"/>
+                        </p:column>
+                    </p:dataTable>
+                    <p:dialog header="Actualización de Datos del Evento" widgetVar="dlgActualizarEvento" modal="true" height="300" width="800" resizable="false" showEffect="explode" hideEffect="explode">
+                    <center>
+                    <p:graphicImage url="./Imagenes/actualizarEvento.png" width="100px" height="100px"/>
+                    <table align="center" cellspacing="10px">
+                        <tr>
+                            <td>
+                                <p:outputLabel value="Código Evento"/>
+                            </td>
+                            <td>
+                                <p:inputText value="#{consultaEventoControlador.codigo}" disabled="true"/>
+                            </td>
+                            <td>
+                                <p:outputLabel value="Fecha"/>
+                            </td>
+                            <td>
+                                <p:inputText value="#{consultaEventoControlador.fechaActualizar}"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p:outputLabel value="Lugar Evento"/>
+                            </td>
+                            <td>
+                                <p:inputText value="#{consultaEventoControlador.lugarActualizar}"/>
+                            </td>
+                            <td>
+                                <p:outputLabel value="Organizador"/>
+                            </td>
+                            <td>
+                                <p:inputText value="#{consultaEventoControlador.nombreorganizadorActualizar}"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p:outputLabel value="Tel. Organizador"/>
+                            </td>
+                            <td>
+                                <p:inputText value="#{consultaEventoControlador.telorganizadorActualizar}"/>
+                            </td>
+                            <td>
+                                <p:outputLabel value="Cant. Invitados"/>
+                            </td>
+                            <td>
+                                <p:inputText value="#{consultaEventoControlador.cantinvitadosActualizar}"/>
+                            </td>
+                            </tr>
+                        <tr>
+                            <td>
+                                <p:outputLabel value="Patrocinador"/>
+                            </td>
+                            <td>
+                                <p:inputText value="#{consultaEventoControlador.nombrepatrocinadorActualizar}"/>
+                            </td>
+                            <td>
+                                <p:outputLabel value="Tel. Patrocinador"/>
+                            </td>
+                            <td>
+                                <p:inputText value="#{consultaEventoControlador.telpatrocinadorActualizar}"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="6" align="center">
+                                <p:commandButton class="boton3"  value="Actualizar" icon="ui-icon-refresh" action="#{consultaEventoControlador.actualizarEvento()}" update="consultaEventoForm"/>
+                            </td>
+                        </tr>
+                    </table>
+                    </center>
+                    </p:dialog>
+                </p:panel>
+            </center>
+        </h:form>
+    </ui:define>
+
+</ui:composition>

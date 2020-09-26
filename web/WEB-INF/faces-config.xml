@@ -1,0 +1,154 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+    
+
+ <navigation-rule>
+        <from-view-id>/index.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>principal</from-outcome>
+            <to-view-id>/menuPrincipal.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>operador</from-outcome>
+            <to-view-id>/menuOperador.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    
+    <navigation-rule>
+        <from-view-id>/menuPrincipal.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>salir</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>nuevoEvento</from-outcome>
+            <to-view-id>/registroEvento.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>consultaEvento</from-outcome>
+            <to-view-id>/consultaEvento.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+        <navigation-rule>
+        <from-view-id>/menuOperador.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>salir</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>nuevoEvento</from-outcome>
+            <to-view-id>/registroEvento.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>consultaEvento</from-outcome>
+            <to-view-id>/consultaEvento.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+
+    <navigation-rule>
+        <from-view-id>/registroEvento.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuPrincipal</from-outcome>
+            <to-view-id>/menuPrincipal.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>menuOperador</from-outcome>
+            <to-view-id>/menuOperador.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        
+        <from-view-id>/consultaCliente.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>menuPrincipal</from-outcome>
+            <to-view-id>/menuPrincipal.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>menuOperador</from-outcome>
+            <to-view-id>/menuOperador.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+    <managed-bean>
+        <description>bean que gestiona el login</description>
+        <managed-bean-name>indexControlador</managed-bean-name>
+        <managed-bean-class>Controlador.IndexControlador</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>Bean que gestiona el login del usuario en la BD</description>
+        <managed-bean-name>indexModelo</managed-bean-name>
+        <managed-bean-class>Modelo.IndexModelo</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>Bean que gestiona la conexion a la BD</description>
+        <managed-bean-name>conexion</managed-bean-name>
+        <managed-bean-class>Utilidades.Conexion</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>Bean que gestiona los mensajes</description>
+        <managed-bean-name>mensajes</managed-bean-name>
+        <managed-bean-class>Utilidades.Mensajes</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>Bean que gestiona el menu principal</description>
+        <managed-bean-name>menuPrincipalControlador</managed-bean-name>
+        <managed-bean-class>Controlador.MenuPrincipalControlador</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>Bean que gestiona el menu dock</description>
+        <managed-bean-name>dock</managed-bean-name>
+        <managed-bean-class>Utilidades.Dock</managed-bean-class>
+        <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>Bean que gestiona el registro del cliente</description>
+        <managed-bean-name>registroEventoControlador</managed-bean-name>
+        <managed-bean-class>Controlador.RegistroEventoControlador</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope></managed-bean>
+    <managed-bean>
+        <description>Pojo que contiene la estructura de un cliente</description>
+        <managed-bean-name>cliente</managed-bean-name>
+        <managed-bean-class>Pojos.Eventos</managed-bean-class>
+    
+        <managed-bean-scope>view</managed-bean-scope></managed-bean>
+    <managed-bean>
+        <description>Bean que gestiona el modelo del cliente</description>
+        <managed-bean-name>registroClienteModelo</managed-bean-name>
+        <managed-bean-class>Modelo.RegistroEventoModelo</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope></managed-bean>
+    <managed-bean>
+        <description>Este bean controla la consulta</description>
+        <managed-bean-name>consultaEventoControlador</managed-bean-name>
+        <managed-bean-class>Controlador.ConsultaEventoControlador</managed-bean-class>
+    
+        <managed-bean-scope>view</managed-bean-scope></managed-bean>
+    <managed-bean>
+        <description>Modelo de datos de la consulta cliente</description>
+        <managed-bean-name>consultaClienteModelo</managed-bean-name>
+        <managed-bean-class>Modelo.ConsultaEventoModelo</managed-bean-class>
+    
+        <managed-bean-scope>view</managed-bean-scope></managed-bean>
+    <managed-bean>
+        <description>Este bean controla el menu del operador</description>
+        <managed-bean-name>menuOperadorMenu</managed-bean-name>
+        <managed-bean-class>Controlador.MenuOperadorMenu</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+        <description>Este bean controla el menu operador</description>
+        <managed-bean-name>menuOperadorControlador</managed-bean-name>
+        <managed-bean-class>Controlador.MenuOperadorControlador</managed-bean-class>
+        <managed-bean-scope>view</managed-bean-scope>
+    </managed-bean>
+</faces-config>

@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./Template/template.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="content">
+        <h:form>
+            <center>
+                <p:growl id="messages"/>
+                <p:menubar>
+                    <p:submenu label="Inicio" icon="ui-icon-home">
+                        <p:menuitem value="Cambio clave" icon="ui-icon-key" onclick="PF('dlgCambioClave').show();" />
+                        <p:separator />
+                        <p:menuitem value="Salir" icon="ui-icon-cancel" action="#{menuPrincipalControlador.navegacionMenu(1)}"/>
+                    </p:submenu>
+
+                    <p:submenu label="Gestiió de Eventos" icon="ui-icon-person">
+                        <p:menuitem value="Nuevo Evento" icon="ui-icon-plus"  action="#{menuPrincipalControlador.navegacionMenu(2)}"/>
+                        <p:separator />
+                        <p:menuitem value="Consulta Evento"  icon="ui-icon-search" action="#{menuPrincipalControlador.navegacionMenu(3)}"/>
+                        <p:separator />
+                    </p:submenu>
+                    <p:submenu label="Ayuda" icon=" ui-icon-help">
+                        <p:menuitem value="Contenidos" url="#" icon="ui-icon-document" />
+                    </p:submenu>
+                    <p:submenu label="Administrador" icon="ui-icon-gear">
+                        <p:menuitem value="Admimistrar Usuarios" url="#" icon="ui-icon-folder-collapsed" />
+                    </p:submenu>
+                </p:menubar>
+                <h2 class="style_title">Bienvenido "Administrador"</h2>
+                <p:graphicImage style="margin-top: 20px; margin-bottom: 20px" url="./Imagenes/fondoevento.png" width="800px" height="500px"/>
+            </center>
+            <p:dialog header="Cambio de Contraseña" widgetVar="dlgCambioClave" modal="true" height="300" width="400" resizable="false" showEffect="explode" hideEffect="explode">
+                <center>
+                    <p:graphicImage url="./Imagenes/fondoevento.png" width="100px" height="100px"/>
+                    <table align="center" cellspacing="10px">
+                        <tr>
+                            <td>
+                                <p:outputLabel value="Clave actual"/>
+                            </td>
+                            <td>
+                                <p:password />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p:outputLabel value="Nueva clave"/>
+                            </td>
+                            <td>
+                                <p:password />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p:outputLabel value="Confirmar clave"/>
+                            </td>
+                            <td>
+                                <p:password />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" align="center">
+                                <p:commandButton value="Actualizar"/>
+                            </td>
+                        </tr>
+                    </table>
+                </center>
+            </p:dialog>
+        </h:form>
+    </ui:define>
+
+</ui:composition>
